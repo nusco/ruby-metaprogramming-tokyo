@@ -1,0 +1,24 @@
+Look at this Ruby code:
+
+  class MyClass; end
+	obj1 = MyClass.new
+	obj2 = MyClass.new
+
+Then look at the paper printout you received (if you didn't get a printout, then look at the missing_lines.jpg image). It shows some of the connections between the entities in the program.
+
+Now it’s your turn to add more lines and boxes to the diagram and answer these questions:
+
+1. What’s the class of Object?
+
+2. What’s the superclass of Module?
+
+3. What’s the class of Class?
+
+4. Imagine that you execute this code:
+      
+	 		obj3 = MyClass.new
+	 		obj3.instance_variable_set("@x", 10)
+			
+   Can you add obj3 to the diagram?
+
+You can use irb and the Ruby documentation to find out the answers. As you answer the questions above, add the missing lines and boxes to the diagram.
