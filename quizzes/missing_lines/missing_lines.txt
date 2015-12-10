@@ -4,7 +4,7 @@ Look at this Ruby code:
 	obj1 = MyClass.new
 	obj2 = MyClass.new
 
-Then look at the paper printout you received (if you didn't get a printout, then look at the missing_lines.jpg image). It shows some of the connections between the entities in the program.
+Then look at the paper printout you received (it's the same image that you can see here in missing_lines.jpg). It shows some of the connections between the entities in the program.
 
 Now it’s your turn to add more lines and boxes to the diagram and answer these questions:
 
@@ -21,4 +21,4 @@ Now it’s your turn to add more lines and boxes to the diagram and answer these
 			
    Can you add obj3 to the diagram?
 
-You can use irb and the Ruby documentation to find out the answers. As you answer the questions above, add the missing lines and boxes to the diagram.
+You can use irb (or Pry) and the Ruby documentation to find out the answers. As you answer the questions above, add the missing lines and boxes to the diagram.
