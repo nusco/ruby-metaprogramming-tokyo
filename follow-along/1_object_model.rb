@@ -2,7 +2,7 @@
 
 class String
   def shout
-    upcase << "!"
+    upcase + "!"
   end
 end
 
@@ -43,14 +43,19 @@ obj.class # => MyClass
 
 # [whiteboard diagram: classes and objects]
 
-# objects: instance variables
+# instance variables are in the object
 
+obj.instance_variables # => []
 obj.my_method
 obj.instance_variables # => [:@v]
 
-# objects: methods
+# methods are in the class
 
+obj.methods
 obj.methods.grep(/my/) # => [:my_method]
+
+# a diversion: "methods" vs. "instance methods"
+
 MyClass.instance_methods == obj.methods # => true
 MyClass.methods == obj.methods # => false
 
@@ -69,7 +74,8 @@ BasicObject.superclass # => nil
 
 MyOtherClass = MyClass
 MyOtherClass.new
-Array = MyClass # !> already initialized constant Array
+
+Array = MyClass
 # [restart interpreter]
 
 # modules
@@ -106,6 +112,7 @@ obj.my_method() # => "my_method()"
 
 # [draw diagram]
 
+obj.object_id
 MySubclass.ancestors # => [MySubclass, MyClass, Object, Kernel, BasicObject]
 
 # modules and lookup
@@ -122,8 +129,8 @@ end
 
 class D1 < C1; end
 
-D1.ancestors # => [D1, C1, M1, Object, Kernel, BasicObject]
 # [draw diagram]
+D1.ancestors # => [D1, C1, M1, Object, Kernel, BasicObject]
 
 # prepend
 
@@ -177,3 +184,5 @@ class MyClass
 end
 
 # Quiz: tangle_of_modules
+
+# handout: object_model_wrap_up.txt
