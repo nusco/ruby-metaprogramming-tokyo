@@ -25,6 +25,37 @@ obj = MyClass.new
 obj.my_attribute = 'x'
 obj.my_attribute        # => "x"
 
+# Class Macros
+
+class MyClass
+  def attr1=(value)
+    @attr1 = value
+  end
+
+  
+  def attr1
+    @attr1
+  end
+end
+
+class MyClass
+  attr_accessor :attr2
+end
+
+obj = MyClass.new
+obj.attr2 = 'x'
+obj.attr2        # => "x"
+
+# defining a new Class Macro
+
+def MyClass.my_macro(x)
+  puts x
+end
+
+class MyClass
+  my_macro 10
+end
+
 # Quiz: checked_attributes_1
 
 # Quiz: checked_attributes_2

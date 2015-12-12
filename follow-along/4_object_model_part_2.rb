@@ -34,7 +34,7 @@ end
 class MyClass
   def self.read; @v; end
   def write; @v = 2; end
-  def read; @v; end # !> instance variable @v not initialized
+  def read; @v; end
 end
 
 # [draw diagram]
@@ -45,7 +45,7 @@ obj.write
 obj.read            # => 2
 MyClass.read        # => 1
 
-# class variables
+# (optional): class variables and why they are confusing
 
 class C
   @@v = 1
@@ -57,15 +57,13 @@ end
 
 D.new.my_method # => 1
 
-# class variables: confusing
-
-@@v = 1 # !> class variable access from toplevel
+@@v = 1
 
 class MyClass
   @@v = 2
 end
 
-@@v # => 2 # !> class variable access from toplevel
+@@v # => 2
 
 # Quiz: 4.class_taboo
 
@@ -95,36 +93,8 @@ def C.a_class_method; end
 # [tell the truth about class methods :) ]
 # [restart interpreter]
 
-# Class Macros
-
-class MyClass
-  def attr1=(value)
-    @attr1 = value
-  end
-
-  
-  def attr1
-    @attr1
-  end
-end
-
-class MyClass
-  attr_accessor :attr2
-end
-
-obj = MyClass.new
-obj.attr2 = 'x'
-obj.attr2        # => "x"
 
 # [restart interpreter]
-
-class MyClass
-  attr_accessor :my_attribute
-end
-
-obj = MyClass.new
-obj.my_attribute = 'x'
-obj.my_attribute        # => "x"
 
 # [turn this into a quiz]
 
