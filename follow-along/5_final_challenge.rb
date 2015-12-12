@@ -1,9 +1,3 @@
-# eval
-
-array = [10, 20]
-element = 30
-eval("array << element") # => [10, 20, 30]
-
 # a review of attr_accessor()
 
 class MyClass
@@ -24,6 +18,20 @@ end
 obj = MyClass.new
 obj.my_attribute = 'x'
 obj.my_attribute        # => "x"
+
+# eval
+
+array = [10, 20]
+element = 30
+eval("array << element") # => [10, 20, 30]
+
+# Quiz: checked_attributes_1
+
+# [explain why eval() is dangerous]
+
+# Quiz: checked_attributes_2
+
+# Quiz: checked_attributes_3
 
 # Class Macros
 
@@ -55,12 +63,6 @@ end
 class MyClass
   my_macro 10
 end
-
-# Quiz: checked_attributes_1
-
-# Quiz: checked_attributes_2
-
-# Quiz: checked_attributes_3
 
 # Quiz: checked_attributes_4
 

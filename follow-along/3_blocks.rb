@@ -23,7 +23,7 @@ just_yield do
   local_to_block = 1
 end
 
-top_level_variable # => 
+top_level_variable # => **
 local_to_block # => 
 
 # scope gates
