@@ -185,4 +185,4 @@ end
 
 # Quiz: tangle_of_modules
 
-# handout: object_model_wrap_up.txt
+# handout: object_model_1_wrap_up.txt
