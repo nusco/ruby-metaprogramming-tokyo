@@ -43,16 +43,20 @@ obj.class # => MyClass
 
 # [whiteboard diagram: classes and objects]
 
-# instance variables are in the object
+# where are instance variables?
 
 obj.instance_variables # => []
 obj.my_method
 obj.instance_variables # => [:@v]
 
-# methods are in the class
+# [instance variables are in the object]
+
+# where are methods?
 
 obj.methods
 obj.methods.grep(/my/) # => [:my_method]
+
+# [methods are in the class]
 
 # a diversion: "methods" vs. "instance methods"
 
@@ -94,7 +98,7 @@ MyClass.superclass # => Object
 MyClass.class # => Class
 Class.superclass # => Module
 
-# Quiz: missing_lines
+# Quiz: 1.missing_lines
 # [distribute missing_lines.jpg handout]
 
 # method lookup
@@ -183,6 +187,6 @@ class MyClass
   self # => MyClass
 end
 
-# Quiz: tangle_of_modules
+# Quiz: 1.tangle_of_modules
 
 # handout: object_model_1_wrap_up.txt

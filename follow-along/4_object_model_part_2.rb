@@ -7,41 +7,40 @@ end
 # class definitions return the last value
 
 result = class MyClass
-  self
+  42
 end
 
-result # => MyClass
+result = class MyClass
+  self
+end
 
 # the "current class" (?)
 # (skip for now)
 
 # class_eval
 
-def add_method_to(a_class)
-  a_class.class_eval do
-    def m; 'Hello!'; end
-  end
+MyClass.class_eval do
+  self
 end
-
-add_method_to String
-"abc".m   # => "Hello!"
 
 # Class Instance Variables
 
 class MyClass
-  @my_var = 1
+  @v = 1
 end
 
+# where is @my_var?
+
 class MyClass
-  @my_var = 1
-  def self.read; @my_var; end
-  def write; @my_var = 2; end
-  def read; @my_var; end
+  def self.read; @v; end
+  def write; @v = 2; end
+  def read; @v; end
 end
+
+# [draw diagram]
 
 obj = MyClass.new
 obj.read            # => nil
-
 obj.write
 obj.read            # => 2
 MyClass.read        # => 1
@@ -68,27 +67,33 @@ end
 
 @@v #=>2
 
-# Quiz: class_taboo
+# Quiz: 4.class_taboo
 
 # Singleton Methods
 
 str = "just a regular string"
 
-def str.title?
+def str.uppercase?
   self.upcase == self
 end
 
-str.title?                      # => false
-str.methods.grep(/title?/)      # => [:title?]
-str.singleton_methods           # => [:title?]
+str.uppercase?                  # => false
+str.methods.grep(/upper/)       # => [:uppercase?]
+str.singleton_methods           # => [:uppercase?]
 
 # the truth about class methods
 
-an_object.a_method
-AClass.a_class_method
+class C; end
+obj = C.new
+
+obj.object_id
+C.name
 
 def obj.a_singleton_method; end
-def MyClass.another_class_method; end
+def C.a_class_method; end
+
+# [tell the truth about class methods :) ]
+# [restart interpreter]
 
 # Class Macros
 
@@ -263,6 +268,6 @@ end
 "Hi!".length # => "short"
 "Hello, world!".length # => "long"
 
-# Quiz: broken_math
+# Quiz: 4.broken_math
 
 # handout: object_model_2_swrap_up.txt

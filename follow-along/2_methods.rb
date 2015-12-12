@@ -17,7 +17,7 @@ obj.unknown_method('a', 'b') do
   # a block
 end
 
-# Quiz: ghost_methods
+# Quiz: 2.ghost_methods
 
 # Dynamic Dispatch
 
@@ -43,6 +43,6 @@ end
 obj = MyClass.new
 obj.my_method(2) # => 6
 
-# Quiz: dynamic_methods
+# Quiz: 2.dynamic_methods
 
-# Quiz: bug_hunt
+# Quiz: 2.bug_hunt

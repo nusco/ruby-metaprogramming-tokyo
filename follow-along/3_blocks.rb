@@ -1,4 +1,4 @@
-# Quiz: Rubython
+# Quiz: 3.rubython
 
 # blocks are closures
 
