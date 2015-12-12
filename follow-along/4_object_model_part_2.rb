@@ -34,7 +34,7 @@ end
 class MyClass
   def self.read; @v; end
   def write; @v = 2; end
-  def read; @v; end
+  def read; @v; end # !> instance variable @v not initialized
 end
 
 # [draw diagram]
@@ -59,13 +59,13 @@ D.new.my_method # => 1
 
 # class variables: confusing
 
-@@v = 1
+@@v = 1 # !> class variable access from toplevel
 
 class MyClass
   @@v = 2
 end
 
-@@v #=>2
+@@v # => 2 # !> class variable access from toplevel
 
 # Quiz: 4.class_taboo
 
@@ -98,23 +98,23 @@ def C.a_class_method; end
 # Class Macros
 
 class MyClass
-  attr_accessor :my_attribute
-end
-
-class MyClass
-  def my_attribute=(value)
-    @my_attribute = value
+  def attr1=(value)
+    @attr1 = value
   end
 
   
-  def my_attribute
-    @my_attribute
+  def attr1
+    @attr1
   end
 end
 
+class MyClass
+  attr_accessor :attr2
+end
+
 obj = MyClass.new
-obj.my_attribute = 'x'
-obj.my_attribute        # => "x"
+obj.attr2 = 'x'
+obj.attr2        # => "x"
 
 # [restart interpreter]
 
@@ -158,14 +158,14 @@ b.LEND_TO_USER("Bill")
 # capture warning
 alias :old_warn :warn
 $warnings = ""
-def warn(s)
+def warn(s) # !> previous definition of warn was here
   $warnings << s
 end
 
 b.LEND_TO_USER("Bill")
 
 # reset warnings
-alias :warn :old_warn
+alias :warn :old_warn # !> method redefined; discarding old warn
 
 # Singleton Classes
 
@@ -192,14 +192,14 @@ obj = Object.new
 singleton_class = class << obj
   self
 end
-singleton_class.class # => Class
+singleton_class.class # => 
 
-"abc".singleton_class # => #<Class:#<String:0x331df0>>
+"abc".singleton_class # => 
 
 # singleton classes are where singleton methods live
 
 def obj.my_singleton_method; end
-singleton_class.instance_methods.grep(/my_/) # => [:my_singleton_method]
+singleton_class.instance_methods.grep(/my_/) # => 
 
 # method lookup revisited
 
@@ -211,7 +211,7 @@ end
 
 class D < C; end
 obj = D.new
-obj.a_method # => "C#a_method()"
+obj.a_method # => 
 
 # [draw diagram]
 
@@ -235,14 +235,14 @@ end
 
 # [update diagram as you go]
 
-C.singleton_class # => #<Class:C>
-D.singleton_class # => #<Class:D>
-D.singleton_class.superclass # => #<Class:C>
-C.singleton_class.superclass # => #<Class:Object>
+C.singleton_class # => 
+D.singleton_class # => 
+D.singleton_class.superclass # => 
+C.singleton_class.superclass # => 
 
 # why this complex arrangement?
 
-D.a_class_method # => "C.a_class_method()"
+D.a_class_method # => 
 
 # aliases
 
@@ -252,8 +252,8 @@ class MyClass
 end
 
 obj = MyClass.new
-obj.my_method # => "my_method()"
-obj.m # => "my_method()"
+obj.my_method # => 
+obj.m # => 
 
 # around aliases
 
@@ -265,9 +265,13 @@ class String
   end
 end
 
-"Hi!".length # => "short"
-"Hello, world!".length # => "long"
+"Hi!".length # => 
+"Hello, world!".length # => 
 
 # Quiz: 4.broken_math
 
 # handout: object_model_2_swrap_up.txt
+# ~> -:187:in `<main>': undefined local variable or method `an_object' for main:Object (NameError)
+# >> Hello
+# >> Lending to Bill
+# >> Lending to Bill
