@@ -93,50 +93,6 @@ def C.a_class_method; end
 # [tell the truth about class methods :) ]
 # [restart interpreter]
 
-
-# [restart interpreter]
-
-# [turn this into a quiz]
-
-class Book
-  def title # ...
-  end
-
-  def subtitle # ...
-  end
-  
-  def lend_to(user)
-    puts "Lending to #{user}"
-    # ...
-  end
-
-  def self.deprecate(old_method, new_method)
-    define_method(old_method) do |*args, &block|
-      warn "Warning: #{old_method}() is deprecated. Use #{new_method}()."
-      send(new_method, *args, &block)
-    end
-  end
-  
-  deprecate :GetTitle, :title
-  deprecate :LEND_TO_USER, :lend_to
-  deprecate :title2, :subtitle
-end
-
-b = Book.new
-b.LEND_TO_USER("Bill")
-
-# capture warning
-alias :old_warn :warn
-$warnings = ""
-def warn(s) # !> previous definition of warn was here
-  $warnings << s
-end
-
-b.LEND_TO_USER("Bill")
-
-# reset warnings
-alias :warn :old_warn # !> method redefined; discarding old warn
-
 # Singleton Classes
 
 class MyClass
