@@ -35,18 +35,18 @@ v1 = 1
 class MyClass
   v2 = 2
   local_variables # => [:v2]
-  
+
   def my_method
     v3 = 3
     local_variables # => [:v3]
   end
-  
+
   local_variables # => [:v2]
 end
 
 obj = MyClass.new
 obj.my_method
-local_variables # => [:x, :top_level_variable, :v1, :obj, :v, :inc, :dec, :p, :my_proc]
+local_variables # => [:obj, :v1, :top_level_variable, :x, :_]
 
 # [explain the three scope gates: class definitions, module definitions, methods]
 
