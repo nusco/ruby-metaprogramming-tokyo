@@ -2,7 +2,7 @@ module CheckedAttributes
   def self.included(base)
     base.extend ClassMethods
   end
-  
+
   module ClassMethods
     def attr_checked(attribute, &validation)
       define_method "#{attribute}=" do |value|

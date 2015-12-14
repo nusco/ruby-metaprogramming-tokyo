@@ -2,11 +2,11 @@ class Buffer
   def initialize
     @actions = []
   end
-  
+
   def insert(&action)
     @actions << action
   end
-  
+
   def play
     @actions.each do |action|
       action.call
@@ -19,17 +19,17 @@ require 'test/unit'
 class BufferTest < Test::Unit::TestCase
   def test_buffers_and_plays_actions
     buffer = Buffer.new
-    
+
     result = 2
-    
+
     buffer.insert do
       result += 1
     end
-    
+
     buffer.insert do
       result *= 2
     end
-    
+
     buffer.insert do
       result += 1
     end

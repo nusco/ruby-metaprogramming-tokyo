@@ -6,7 +6,7 @@ module Printable
   def print
     puts "Printable#print()"
   end
-  
+
   def prepare_cover
     # there is code here, but we don't care about it
   end
@@ -18,11 +18,11 @@ module Document
     format_for_screen
     print
   end
-  
+
   def format_for_screen
     # we don't care about this code either
   end
-  
+
   def print
     puts "Document#print()"
   end
@@ -31,7 +31,7 @@ end
 class Book
   include Printable
   include Document
-  # ...  
+  # ...
 end
 
 b = Book.new
