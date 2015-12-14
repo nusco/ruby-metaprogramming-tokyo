@@ -18,6 +18,6 @@ MyClass.my_method # => "hello"
 
 puts "OK!"
 
-# Now my_method() is an instance method of the singleton class of 
+# Now my_method() is an instance method of the singleton class of
 # MyClass. As such, my_method() is also a class method of MyClass.
 # Twisted, uhu?

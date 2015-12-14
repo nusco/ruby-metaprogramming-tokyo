@@ -6,7 +6,7 @@ my_var = "Success"
 
 MyClass = Class.new do
   puts "#{my_var} in the class definition. You're half done!"
-  
+
   define_method :my_method do
     puts "#{my_var} in the method. Congratulations, you made it!"
   end

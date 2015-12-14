@@ -62,7 +62,7 @@ class TestWith < Test::Unit::TestCase
     assert_equal 1, x
     assert disposable.disposed?
   end
-  
+
   # Even if the block raises an exception, the resource
   # is still disposed of.
   def test_disposes_of_resources_in_case_of_exception

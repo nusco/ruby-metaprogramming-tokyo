@@ -1,4 +1,4 @@
-# Every single day, somewhere in the world, a Ruby programmer 
+# Every single day, somewhere in the world, a Ruby programmer
 # tries to define a class method by including a module, like this:
 
 module MyModule

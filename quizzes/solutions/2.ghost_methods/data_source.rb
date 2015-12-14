@@ -14,19 +14,19 @@ class DS
   def get_cpu_price(workstation_id)
     120
   end
-  
+
   def get_mouse_info(workstation_id)
     "Wireless Touch"
   end
-  
+
   def get_mouse_price(workstation_id)
     60
   end
-  
+
   def get_keyboard_info(workstation_id)
     "Standard US"
   end
-  
+
   def get_keyboard_price(workstation_id)
     20
   end

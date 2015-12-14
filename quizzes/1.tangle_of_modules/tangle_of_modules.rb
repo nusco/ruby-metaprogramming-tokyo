@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # In this quiz, you're not going to write (or even run) code until the very last
 # moment. Instead of editing the code in this file, you're supposed to think about
 # it and discuss it with your pairing partner.
@@ -28,7 +29,7 @@ module Printable
   def print
     puts "Printable#print()"
   end
-  
+
   def prepare_cover
     # there is code here, but we don't care about it
   end
@@ -40,11 +41,11 @@ module Document
     format_for_screen
     print
   end
-  
+
   def format_for_screen
     # we don't care about this code either
   end
-  
+
   def print
     puts "Document#print()"
   end
@@ -53,7 +54,7 @@ end
 class Book
   include Document
   include Printable
-  # ...  
+  # ...
 end
 
 b = Book.new
