@@ -41,6 +41,7 @@ class String
   end
 end
 
+"hello".class # => String
 "hello".shout # => "HELLO!"
 
 # classes and objects example program
@@ -62,16 +63,14 @@ obj.instance_variables # => []
 obj.my_method
 obj.instance_variables # => [:@v]
 
-# [instance variables are in the object]
-
-# where are methods?
+# [diagram: instance variables are in the object]
 
 obj.methods
 obj.methods.grep(/my/) # => [:my_method]
 
-# [methods are in the class]
+# [diagram: methods are in the class]
 
-# a diversion: "methods" vs. "instance methods"
+# "methods" vs. "instance methods"
 
 MyClass.instance_methods == obj.methods # => true
 MyClass.methods == obj.methods # => false
@@ -82,29 +81,52 @@ obj.class # => MyClass
 MyClass.class # => Class
 
 Class.instance_methods(false) # => [:allocate, :new, :superclass]
+MyClass.new
 
+# superclasses
+
+MyClass.superclass # => Object
 Array.superclass # => Object
+
+# [add to diagram]
+
 Object.superclass # => BasicObject
 BasicObject.superclass # => nil
 
 # class names are constants
 
+X = 'hello'
+Y = X
+Y # => 'hello'
+
 MyOtherClass = MyClass
 MyOtherClass.new
 
+Y = 10
+Array = MyClass
 Array = MyClass
 # [restart interpreter]
 
 # modules
 
 Class.superclass # => Module
+Class.instance_methods
+Class.instance_methods - Module.instance_methods
+Class.instance_methods(false) # => [:allocate, :new, :superclass]
 
 # let's put it together
 
-class MyClass; end
+# [draw diagram while exploring]
+
+class MyClass
+  def my_method
+    @v = 1
+  end
+end
+
 obj1 = MyClass.new
 obj2 = MyClass.new
-# [draw diagram while exploring]
+obj1.my_method
 obj1.class # => MyClass
 obj2.class # => MyClass
 MyClass.superclass # => Object
@@ -116,21 +138,27 @@ Class.superclass # => Module
 
 # method lookup
 
-# [restart interpreter]
+# [maybe restart interpreter]
+
 class MyClass
-  def my_method; 'my_method()'; end
+  def my_method
+    @v = 1
+  end
 end
 
 class MySubclass < MyClass
 end
 
 obj = MySubclass.new
-obj.my_method() # => "my_method()"
+obj.my_method() # => 1
 
-# [draw diagram]
+# [draw or update diagram]
 
-obj.object_id
+obj.__id__
 MySubclass.ancestors # => [MySubclass, MyClass, Object, Kernel, BasicObject]
+
+obj.method(:__id__)
+obj.method(:__id__).owner # => BasicObject
 
 # modules and lookup
 
@@ -160,18 +188,9 @@ class D2 < C2; end
 D2.ancestors # => [D2, M1, C2, Object, Kernel, BasicObject]
 # [draw diagram]
 
-# Kernel Method
-
-module Kernel
-  def greet
-    'Hello!'
-  end
-end
-
-"abc".greet # => "Hello!"
-"abc".class.ancestors # => [String, Comparable, Object, Kernel, BasicObject]
-
 # self
+
+# [restart interpreter]
 
 class MyClass
   def testing_self
@@ -186,19 +205,37 @@ class MyClass
 end
 
 obj = MyClass.new
+
+# [draw diagram]
+
 obj.testing_self # => #<MyClass:0x007f91d20eec58 @var=11>
-
-# the top level
-
-self # => main
-self.class # => Object
-self.greet # => "Hello!"
 
 # class definitions and self
 
 class MyClass
   self # => MyClass
 end
+
+# the top level
+
+self # => main
+self.class # => Object
+
+# Kernel Method
+
+Object.ancestors # => [Object, Kernel, BasicObject]
+
+module Kernel
+  def greet
+    'Hello!'
+  end
+end
+
+"abc".greet # => "Hello!"
+"abc".class.ancestors # => [String, Comparable, Object, Kernel, BasicObject]
+
+self.greet # => "Hello!"
+greet # => "Hello!"
 
 # Quiz: 1.tangle_of_modules
 
