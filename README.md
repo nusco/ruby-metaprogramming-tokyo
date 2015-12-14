@@ -18,47 +18,18 @@ The course is divided into five modules, each consisting of theory lessons inter
 
 An introduction to the Ruby Object Model and method lookup. This is essential knowledge for any Ruby developer.
 
-Patterns introduced in the module:
-
-  - Open Class
-  - Monkeypatch
-  - Kernel Method
-
 ###2. Methods
 
 Advanced Ruby techniques to define and call methods, and avoid duplicated code.
-
-Patterns introduced in the module:
-
-  - Dynamic Dispatch
-  - Dynamic Methods
-  - Ghost Methods
 
 ###3. Blocks
 
 Managing closures and scope in Ruby, and executing code in the scope of an object with instance_eval().
 
-Patterns introduced in the module:
-
-  - Scope Gate
-  - Flat Scope
-  - Context Probe
-
 ###4. The Ruby Object Model, part 2
 
 A second, deeper look at the object model. It introduces the most advanced techniques used in frameworks such as Rails.
 
-Patterns introduced in the module:
-
-  - Class Instance Variable
-  - Class Macro
-  - Around Alias
-
 ###5. The Final Challenge
 
 An extended final exercise, with some additional theory.
-
-Patterns introduced in the module:
-
-  - String of Code
-  - Hook Method
