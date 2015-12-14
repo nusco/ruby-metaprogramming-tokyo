@@ -9,7 +9,6 @@ class MyClass
     @my_attribute = value
   end
 
-  
   def my_attribute
     @my_attribute
   end
@@ -40,7 +39,6 @@ class MyClass
     @attr1 = value
   end
 
-  
   def attr1
     @attr1
   end
@@ -97,7 +95,7 @@ module M
   def self.method_added(method)
     puts "New method: M##{method}"
   end
-  
+
   def my_method; end
 end
 
