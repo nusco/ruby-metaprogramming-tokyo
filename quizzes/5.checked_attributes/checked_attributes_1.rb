@@ -31,7 +31,7 @@ class TestCheckedAttribute < Test::Unit::TestCase
       @bob.age = nil
     end
   end
-  
+
   def test_refuses_false_values
     assert_raises RuntimeError, 'Invalid attribute' do
       @bob.age = false

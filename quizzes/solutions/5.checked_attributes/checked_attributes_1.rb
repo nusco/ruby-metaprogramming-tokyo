@@ -5,7 +5,7 @@ def add_checked_attribute(klass, attribute)
         raise 'Invalid attribute' unless value
         @#{attribute} = value
       end
-  
+
       def #{attribute}()
         @#{attribute}
       end
@@ -33,7 +33,7 @@ class TestCheckedAttribute < Test::Unit::TestCase
       @bob.age = nil
     end
   end
-  
+
   def test_refuses_false_values
     assert_raises RuntimeError, 'Invalid attribute' do
       @bob.age = false
