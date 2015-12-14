@@ -116,4 +116,4 @@ end
 my_proc = proc { "Bill" }
 my_method("Hello", &my_proc)
 
-# Quiz: 4.recorder
+# Quiz: 3.buffer
