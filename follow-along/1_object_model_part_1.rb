@@ -1,17 +1,20 @@
-# Open Class / Monkeypatch
-
-class String
-  def shout
-    upcase + "!"
+class C
+  def x
+    1
   end
 end
 
-"hello".shout # => "HELLO!"
+obj = C.new
+obj.x
 
 # class definitions are just code
 
+class C
+  puts "hello"
+end
+
 3.times do
-  class C
+  class MyClass
     puts "hello"
   end
 end
@@ -29,6 +32,16 @@ end
 obj = D.new
 obj.x # => "x"
 obj.y # => "y"
+
+# Open Class / Monkeypatch
+
+class String
+  def shout
+    upcase + "!"
+  end
+end
+
+"hello".shout # => "HELLO!"
 
 # classes and objects example program
 
