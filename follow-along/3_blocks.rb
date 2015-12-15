@@ -30,18 +30,20 @@ top_level_variable # => 2
 
 # scope gates
 
+local_variables
+
 v1 = 1
 
 class MyClass
   v2 = 2
-  local_variables # => [:v2]
+  p local_variables
 
   def my_method
     v3 = 3
-    local_variables # => [:v3]
+    p local_variables
   end
 
-  local_variables # => [:v2]
+  p local_variables
 end
 
 obj = MyClass.new
@@ -63,20 +65,19 @@ end
 obj = MyClass.new
 
 obj.instance_eval do
-  self        # => #<MyClass:0x007fdf4419c2f8 @v=1>
-  @v          # => 1
+  p self
+  p @v
 end
 
 v = 2
 obj.instance_eval { @v = v }
-obj.instance_eval { @v }      # => 2
+obj.instance_eval { @v } # => 2
 
 # procs
 
 # [restart interpreter]
 
 inc = Proc.new {|x| x + 1 }
-# more code...
 inc.call(2) # => 3
 
 # lambdas
@@ -86,34 +87,25 @@ dec.class # => Proc
 dec.call(2) # => 1
 
 p = ->(x) { x + 1 }
+p.call(2) # => 1
 
 # the & operator
 
 # [restart interpreter]
 
-def math(a, b)
-  yield(a, b)
-end
-
-def do_math(a, b, &operation)
-  math(a, b, &operation)
-end
-
-do_math(2, 3) {|x, y| x * y}  # => 6
-
-def my_method(&the_proc)
+def my_method1(&the_proc)
   the_proc
 end
 
-p = my_method {|name| "Hello, #{name}!" }
+p = my_method1 {|name| "Hello, #{name}!" }
 p.class         # => Proc
 p.call("Bill")  # => "Hello, Bill!"
 
-def my_method(greeting)
+def my_method2(greeting)
   "#{greeting}, #{yield}!"
 end
 
 my_proc = proc { "Bill" }
-my_method("Hello", &my_proc)
+my_method2("Hello", &my_proc)
 
 # Quiz: 3.buffer
