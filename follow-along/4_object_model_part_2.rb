@@ -14,14 +14,24 @@ result = class MyClass
   self
 end
 
-# the "current class" (?)
-# (skip for now)
-
 # class_eval
+
+MyClass.instance_eval do
+  def m; end
+end
+
+# error:
+# MyClass.m
 
 MyClass.class_eval do
   self
 end
+
+MyClass.class_eval do
+  def m; 100; end
+end
+
+MyClass.m # => 100
 
 # Class Instance Variables
 
@@ -34,7 +44,7 @@ end
 class MyClass
   def self.read; @v; end
   def write; @v = 2; end
-  def read; @v; end # !> instance variable @v not initialized
+  def read; @v; end
 end
 
 # [draw diagram]
@@ -57,13 +67,13 @@ end
 
 D.new.my_method # => 1
 
-@@v = 1 # !> class variable access from toplevel
+@@v = 1
 
 class MyClass
   @@v = 2
 end
 
-@@v # => 2 # !> class variable access from toplevel
+@@v # => 2
 
 # Quiz: 4.class_taboo
 
@@ -88,7 +98,7 @@ obj.object_id
 C.name
 
 def obj.a_singleton_method; end
-def C.a_class_method; end # !> previous definition of a_class_method was here
+def C.a_class_method; end
 
 # [tell the truth about class methods :) ]
 # [restart interpreter]
@@ -96,7 +106,7 @@ def C.a_class_method; end # !> previous definition of a_class_method was here
 # Singleton Classes
 
 class MyClass
-  def my_method; end # !> previous definition of my_method was here
+  def my_method; end
 end
 
 obj = MyClass.new
