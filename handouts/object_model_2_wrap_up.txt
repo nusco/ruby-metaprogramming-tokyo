@@ -1,7 +1,7 @@
-⬜ There is only one kind of object—be it a regular object or a module.
-⬜ There is only one kind of module—be it a regular module, a class, or a singleton class.
-⬜ There is only one kind of method, and it lives in a module—most often in a class.
-⬜ Every object, classes included, has its own “real class,” be it a regular class or a singleton class.
-⬜ Every class, with the exception of BasicObject, has exactly one ancestor— either a superclass or a module. This means you have a single chain of ancestors from any class up to BasicObject.
-⬜ The superclass of the singleton class of an object is the object’s class. The superclass of the singleton class of a class is the singleton class of the class’s superclass. (Try repeating that three times, fast!)
-⬜ When you call a method, Ruby goes “right” in the receiver’s real class and then “up” the ancestors chain. That’s all there is to know about the way Ruby finds methods.
+□ There is only one kind of object—be it a regular object or a module.
+□ There is only one kind of module—be it a regular module, a class, or a singleton class.
+□ There is only one kind of method, and it lives in a module—most often in a class.
+□ Every object, classes included, has its own “real class,” be it a regular class or a singleton class.
+□ Every class, with the exception of BasicObject, has exactly one ancestor— either a superclass or a module. This means you have a single chain of ancestors from any class up to BasicObject.
+□ The superclass of the singleton class of an object is the object’s class. The superclass of the singleton class of a class is the singleton class of the class’s superclass. (Try repeating that three times, fast!)
+□ When you call a method, Ruby goes “right” in the receiver’s real class and then “up” the ancestors chain. That’s all there is to know about the way Ruby finds methods.
