@@ -1,6 +1,3 @@
-# This is just the test for the Computer class. Don't modify this file!
-# Read the exercise instructions in computer.rb.
-
 require_relative 'computer'
 require_relative 'data_source'
 require 'test/unit'

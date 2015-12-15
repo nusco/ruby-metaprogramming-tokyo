@@ -1,4 +1,4 @@
-# This is just the test for the Computer class. Don't modify this file!
+# Don't modify this file!
 # Imagine that this is a class in a library that you cannot change.
 # Read the exercise instructions in computer.rb.
 
