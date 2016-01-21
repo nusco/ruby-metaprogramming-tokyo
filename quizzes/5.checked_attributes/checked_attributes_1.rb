@@ -4,7 +4,7 @@ def add_checked_attribute(klass, attribute)
   eval "..." # fill in this string of code!
 end
 
-# add_checked_attribute() should do a take a class and the name of an attribute, and
+# add_checked_attribute() should take a class and the name of an attribute, and
 # generate a reader method and a writer method for the attribute on the class, pretty
 # much like attr_accessor() does. However, add_checked_attribute() should also add
 # basic validation to the attribute: the attribute will raise an exception if you
@@ -27,13 +27,13 @@ class TestCheckedAttribute < Test::Unit::TestCase
   end
 
   def test_refuses_nil_values
-    assert_raises RuntimeError, 'Invalid attribute' do
+    assert_raises RuntimeError.new('Invalid attribute') do
       @bob.age = nil
     end
   end
 
   def test_refuses_false_values
-    assert_raises RuntimeError, 'Invalid attribute' do
+    assert_raises RuntimeError.new('Invalid attribute') do
       @bob.age = false
     end
   end
