@@ -4,7 +4,6 @@ This is a one-day advanced Ruby training for beginner and intermediate Ruby deve
 
 This is a hands-on training. Attendants will spend most of their time writing code. Even during the most theoretical lessons, they will constantly learn from concrete practice, writing code snippets and short programs.
 
-
 ##The teacher
 
 Paolo "Nusco" Perrotta is the author of "Metaprogramming Ruby", widely considered one of the most important books on Ruby. He has tens of years of experience as a developer, a mentor of developers, and an Agile team coach. He is a frequent speaker and keynote speaker at conferences around the world.
